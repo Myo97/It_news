@@ -1,0 +1,17 @@
+1. Front-end prepartaion
+SSR Project
+
+https://youtu.be/4C5aMcuRaEs
+
+2. Category CRUD
+https://youtu.be/JP-bhflgKSQ
+
+3. Article CRUD 1
+https://youtu.be/zZlQxSiEk6c
+
+4. Article CRUD 2
+https://youtu.be/IATUtTwdFPE
+
+5. Bug Fix
+https://youtu.be/WhRqeqUpavw
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return View("category.edit",compact("category"));
     }
 
     /**
@@ -77,7 +78,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            "title" => "required | unique:categories,title,".$category->id
+        ]);
+        $category->title = $request->title;
+        $category->user_id = Auth::id();
+        $category->save();
+        return redirect()->route('category.index')->with("status","Category update success!");
     }
 
     /**
@@ -88,6 +95,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('category.index')->with("status","Category deleted success!");
     }
 }
