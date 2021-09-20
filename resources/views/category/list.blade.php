@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (\App\Category::with('user')->get() as $category)
+        @forelse (\App\Category::with('user')->get() as $category)
         <tr>
             <td>{{ $category->id }}</td>
             <td>{{ $category->title }}</td>
@@ -47,7 +47,13 @@
                     {{ $category->updated_at->format("h : m a") }}
                 </small>  
             </td>
-        </tr>                                
-        @endforeach
+        </tr>      
+        @empty
+        <tr>
+            <td colspan="6" class="text-center">
+                <span class="font-weight-bold text-black-50">There is no category yet.</span>    
+            </td>    
+        </tr>     
+        @endforelse
     </tbody>
 </table>

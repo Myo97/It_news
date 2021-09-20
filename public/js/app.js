@@ -37374,14 +37374,17 @@ $(".full-screen-btn").click(function () {
   } else {
     $(this).html("<i class=\"feather-maximize-2\"></i>");
   }
-});
-var screenHeight = $(window).height();
-var currentMenuHeight = $(".nav-menu .active").offset().top;
+}); //Navigation ko active shi tae nav ko auto scroll pay tar
 
-if (currentMenuHeight > screenHeight * 0.8) {
-  $(".sidebar").animate({
-    scrollTop: currentMenuHeight - 100
-  }, 1000);
+if ($(".nav-menu .active").offset() != undefined) {
+  var screenHeight = $(window).height();
+  var currentMenuHeight = $(".nav-menu .active").offset().top;
+
+  if (currentMenuHeight > screenHeight * 0.8) {
+    $(".sidebar").animate({
+      scrollTop: currentMenuHeight - 100
+    }, 1000);
+  }
 }
 
 /***/ }),
@@ -37449,8 +37452,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravel\SSR_project\itNews\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravel\SSR_project\itNews\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\SSR_project\itNews\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\SSR_project\itNews\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
